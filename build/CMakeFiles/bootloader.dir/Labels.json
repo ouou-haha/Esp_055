@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

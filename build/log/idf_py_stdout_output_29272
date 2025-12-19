@@ -1,0 +1,202 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15540
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.2-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Dec  4 2025 21:28:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=24f78h (151416) map[0m
+[0;32mI (157) esp_image: segment 1: paddr=00034fa0 vaddr=3ffb0000 size=03b94h ( 15252) load[0m
+[0;32mI (163) esp_image: segment 2: paddr=00038b3c vaddr=40080000 size=074dch ( 29916) load[0m
+[0;32mI (174) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=9a894h (632980) map[0m
+[0;32mI (392) esp_image: segment 4: paddr=000da8bc vaddr=400874dc size=0f55ch ( 62812) load[0m
+[0;32mI (428) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (428) boot: Disabling RNG early entropy source...[0m
+[0;32mI (439) cpu_start: Multicore app[0m
+[0;32mI (448) cpu_start: Pro cpu start user code[0m
+[0;32mI (448) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (448) cpu_start: Application information:[0m
+[0;32mI (451) cpu_start: Project name:     mqtt_tcp[0m
+[0;32mI (456) cpu_start: App version:      v5.2.2-dirty[0m
+[0;32mI (462) cpu_start: Compile time:     Dec  4 2025 21:28:36[0m
+[0;32mI (468) cpu_start: ELF file SHA256:  81d5f42d9...[0m
+[0;32mI (473) cpu_start: ESP-IDF:          v5.2.2-dirty[0m
+[0;32mI (479) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (483) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (488) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (493) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (500) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (506) heap_init: At 3FFB82F8 len 00027D08 (159 KiB): DRAM[0m
+[0;32mI (512) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (519) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (525) heap_init: At 40096A38 len 000095C8 (37 KiB): IRAM[0m
+[0;32mI (533) spi_flash: detected chip: generic[0m
+[0;32mI (536) spi_flash: flash io: dio[0m
+[0;33mW (540) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (554) main_task: Started on CPU0[0m
+[0;32mI (564) main_task: Calling app_main()[0m
+[0;32mI (564) mqtt_example: [APP] Startup..[0m
+[0;32mI (564) mqtt_example: [APP] Free memory: 278220 bytes[0m
+[0;32mI (564) mqtt_example: [APP] IDF version: v5.2.2-dirty[0m
+[0;32mI (634) example_connect: Start example_connect.[0m
+[0;32mI (644) wifi:wifi driver task: 3ffbff30, prio:23, stack:6656, core=0[0m
+[0;32mI (664) wifi:wifi firmware version: 3e0076f[0m
+[0;32mI (664) wifi:wifi certification version: v7.0[0m
+[0;32mI (664) wifi:config NVS flash: enabled[0m
+[0;32mI (664) wifi:config nano formating: disabled[0m
+[0;32mI (674) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (674) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (684) wifi:Init management short buffer num: 32[0m
+[0;32mI (684) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (684) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (694) wifi:Init static rx buffer num: 10[0m
+[0;32mI (694) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (704) wifi_init: rx ba win: 6[0m
+[0;32mI (704) wifi_init: tcpip mbox: 32[0m
+[0;32mI (704) wifi_init: udp mbox: 6[0m
+[0;32mI (714) wifi_init: tcp mbox: 6[0m
+[0;32mI (714) wifi_init: tcp tx win: 5760[0m
+[0;32mI (714) wifi_init: tcp rx win: 5760[0m
+[0;32mI (724) wifi_init: tcp mss: 1440[0m
+[0;32mI (724) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (734) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (734) phy_init: phy_version 4791,2c4672b,Dec 20 2023,16:06:06[0m
+[0;32mI (824) wifi:mode : sta (c8:2e:18:68:63:84)[0m
+[0;32mI (824) wifi:enable tsf[0m
+[0;32mI (824) example_connect: Connecting to huawei...[0m
+[0;32mI (824) example_connect: Waiting for IP(s)[0m
+[0;32mI (3494) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1[0m
+[0;32mI (3494) wifi:state: init -> auth (b0)[0m
+[0;32mI (3494) wifi:state: auth -> assoc (0)[0m
+[0;32mI (3504) wifi:state: assoc -> run (10)[0m
+[0;33mW (3514) wifi:[ADDBA]rx delba, code:39, delete tid:0[0m
+[0;32mI (3774) wifi:connected with huawei, aid = 5, channel 11, 40D, bssid = 48:0e:ec:6a:07:ae[0m
+[0;32mI (3774) wifi:security: WPA2-PSK, phy: bgn, rssi: -40[0m
+[0;32mI (3784) wifi:pm start, type: 1[0m
+
+[0;32mI (3784) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3824) wifi:<ba-add>idx:0 (ifx:0, 48:0e:ec:6a:07:ae), tid:0, ssn:10, winSize:64[0m
+[0;32mI (3844) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5294) esp_netif_handlers: example_netif_sta ip: 192.168.0.103, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (5294) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 192.168.0.103[0m
+[0;32mI (5634) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:ca2e:18ff:fe68:6384, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (5634) example_common: Connected to example_netif_sta[0m
+[0;32mI (5644) example_common: - IPv4 address: 192.168.0.103,[0m
+[0;32mI (5644) example_common: - IPv6 address: fe80:0000:0000:0000:ca2e:18ff:fe68:6384, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (5654) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (5664) mqtt_example: dev_id=686384[0m
+[0;32mI (5664) mqtt_example: topic_data=sensors/686384/data[0m
+[0;32mI (5674) mqtt_example: topic_status=sensors/686384/status[0m
+[0;32mI (5684) mqtt_example: Other event id:7[0m
+[0;32mI (5684) main_task: Returned from app_main()[0m
+[0;32mI (5824) mqtt_example: MQTT_EVENT_CONNECTED[0m
+[0;32mI (6674) mqtt_example: 1s stats: sample=101 drop=0 pub_ok=84 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (7674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (8674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (9674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (10674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (11674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (12674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (13674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (14674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (15674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (16674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (17674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (18674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (19674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (20674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (21674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (22674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (23674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (24674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (25674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (26674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (27674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (28674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (29674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (30674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (31674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (32674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (33674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (34674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (35674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (36674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (37674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (38674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=99 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (39674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (40674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (41674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (42674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (43674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (44674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (45674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=22 mqtt=1[0m
+[0;32mI (46674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (47674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (48674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (49674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (50674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (51674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (52674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=99 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (53674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (54674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (55674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=99 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (56674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (57674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (58674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (59674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (60674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (61674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (62674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (63674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (64674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (65674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (66674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (67674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (68674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=99 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (69674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (70674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (71674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=99 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (72674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (73674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (74674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (75674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (76674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (77674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (78674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (79674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (80674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (81674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (82674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (83674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (84674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (85674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (86674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (87674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (88674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=99 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (89674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (90674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (91674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (92674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (93674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (94674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m
+[0;32mI (95674) mqtt_example: 1s stats: sample=100 drop=0 pub_ok=100 pub_fail=0 qlen=0 highwater=1 mqtt=1[0m

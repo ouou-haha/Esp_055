@@ -1,0 +1,7 @@
+source "/home/szu/work/esp-idf/components/bootloader/Kconfig.projbuild"
+source "/home/szu/work/esp-idf/components/esp_app_format/Kconfig.projbuild"
+source "/home/szu/work/esp-idf/components/esp_rom/Kconfig.projbuild"
+source "/home/szu/work/esp-idf/components/esptool_py/Kconfig.projbuild"
+source "/home/szu/work/esp-idf/components/partition_table/Kconfig.projbuild"
+source "/home/szu/work/esp-idf/mywork/esp32_mqtt_100hz/main/Kconfig.projbuild"
+source "/home/szu/work/esp-idf/examples/common_components/protocol_examples_common/Kconfig.projbuild"
