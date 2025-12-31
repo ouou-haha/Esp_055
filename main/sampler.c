@@ -7,7 +7,7 @@
 #include <inttypes.h>
 #include "esp_log.h"
 
-
+QueueHandle_t sample_q = NULL;
 
 static void sampler_task(void *arg)
 {
