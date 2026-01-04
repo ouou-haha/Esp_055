@@ -3,6 +3,11 @@
 #include "esp_log.h"
 #include "esp_mac.h"
 #include "app_ctx.h"
+#include "topics.h"
+
+char g_dev_id[16] = {0};
+char g_topic_data[64];
+char g_topic_status[64];
 
 void init_topics(void)
 {
@@ -17,3 +22,4 @@ void init_topics(void)
     ESP_LOGI(TAG, "topic_data=%s", g_topic_data);
     ESP_LOGI(TAG, "topic_status=%s", g_topic_status);
 }
+

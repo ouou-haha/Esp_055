@@ -25,7 +25,9 @@
 #include "esp_mac.h"
 #include "protocol_examples_common.h"
 
-
+#include "topics.h"
+#include "mqtt_app.h"
+#include "sampler.h"
 
 #define SAMPLE_PERIOD_MS     10
 #define SAMPLE_Q_LEN         256

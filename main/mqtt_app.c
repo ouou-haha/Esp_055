@@ -6,6 +6,7 @@
 
 volatile bool mqtt_connected = false;
 esp_mqtt_client_handle_t g_mqtt_client = NULL;
+
 static void log_error_if_nonzero(const char *message, int error_code)
 {
     if (error_code != 0) {
@@ -13,16 +14,6 @@ static void log_error_if_nonzero(const char *message, int error_code)
     }
 }
 
-/*
- * @brief Event handler registered to receive MQTT events
- *
- *  This function is called by the MQTT client event loop.
- *
- * @param handler_args user data registered to the event.
- * @param base Event base for the handler(always MQTT Base in this example).
- * @param event_id The id for the received event.
- * @param event_data The data for the event, esp_mqtt_event_handle_t.
- */
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32 "", base, event_id);
@@ -32,17 +23,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
-        // msg_id = esp_mqtt_client_publish(client, "/topic/qos1", "data_3", 0, 1, 0);
-        // ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
-
-        // msg_id = esp_mqtt_client_subscribe(client, "/topic/qos0", 0);
-        // ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        // msg_id = esp_mqtt_client_subscribe(client, "/topic/qos1", 1);
-        // ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        // msg_id = esp_mqtt_client_unsubscribe(client, "/topic/qos1");
-        // ESP_LOGI(TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
         mqtt_connected = true;
         esp_mqtt_client_publish(client, g_topic_status, "online", 0, 0, 1);
         // if (publisher_handle == NULL) {
@@ -52,6 +32,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
+        //TODO: add (random) delay to avoid all reconnect at the same time;
         mqtt_connected = false;
         break;
 
@@ -79,7 +60,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
             log_error_if_nonzero("reported from tls stack", event->error_handle->esp_tls_stack_err);
             log_error_if_nonzero("captured as transport's socket errno",  event->error_handle->esp_transport_sock_errno);
             ESP_LOGI(TAG, "Last errno string (%s)", strerror(event->error_handle->esp_transport_sock_errno));
-
         }
         break;
     default:
@@ -92,14 +72,14 @@ void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri = CONFIG_BROKER_URL,
-
+        //TODO: add unique client id
         .session = {
-            .keepalive = 15,
+            .keepalive = 15, //TODO: 60
             .disable_clean_session = false,
         },
 
         .network = {
-            .reconnect_timeout_ms = 1000,
+            .reconnect_timeout_ms = 1000,//TODO: 3000 avoid more reconnection
         },
 
         .session.last_will = {
@@ -112,7 +92,6 @@ void mqtt_app_start(void)
     };
 
     g_mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
-    /* The last argument may be used to pass data to the event handler, in this example mqtt_event_handler */
     esp_mqtt_client_register_event(g_mqtt_client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
     esp_mqtt_client_start(g_mqtt_client);
 }
