@@ -4,5 +4,6 @@ idf_component_register(
         "topics.c"
         "mqtt_app.c"
         "sampler.c"
+        "wifi_connect.c"
     INCLUDE_DIRS "."
 )
