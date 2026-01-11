@@ -8,6 +8,8 @@
 #include "app_ctx.h"
 #include "sampler.h"
 
+#define BATCH_N  5
+
 QueueHandle_t sample_q = NULL;
 
 /* performance */
@@ -23,11 +25,20 @@ void sampler_task(void *arg)
     TickType_t last = xTaskGetTickCount();
 
     while (1) {
+        const int64_t now_us = esp_timer_get_time();
         sample_t s = {
             .seq   = seq++,
-            .ts_us = esp_timer_get_time(),
+            .ts_us = now_us,
+            .imu = {
+                .acc      = { 0, 0, 981 },        // 固定：约 9.81 m/s^2（若你按 1m/s^2=100LSB）
+                .lin_acc  = { 0, 0, 0 },          // 固定：0
+                .gyro     = { 0, 0, 0 },          // 固定：0
+                .quat     = { 16384, 0, 0, 0 },   // 固定：单位四元数 w=1
+                .status   = {0},                  // 固定：全 0
+                .tag      = 0xBAB055,             // 固定：标记
+                .batt_mV  = 4100,                 // 固定：4.1V
+            },
         };
-
         g_sample_cnt++;
 
         // 队列满：这里选择“丢新样本”并统计（你也可以改成覆盖旧的）
@@ -65,32 +76,46 @@ void sampler_task(void *arg)
 void sender_task(void *arg)
 {
     const char *topic = g_topic_data;
-    char payload[128];
+    char payload[256];
 
     while (1) {
-        sample_t s;
-        if (xQueueReceive(sample_q, &s, portMAX_DELAY) == pdTRUE) {
 
-            if (!mqtt_connected) {
-                continue;
-            }
+        if (!mqtt_connected) {
+            vTaskDelay(pdMS_TO_TICKS(50));
+            continue;
+        }
 
 #if 0
             int n = snprintf(payload, sizeof(payload),
                              "{\"seq\":%u,\"ts_us\":%lld}",
                              (unsigned)s.seq, (long long)s.ts_us);
 #else
-            int n = snprintf(payload, sizeof(payload), //TODO: use lighter format like csv? bin?
-                             "%" PRIu32 ",%" PRIi64,
-                             s.seq, s.ts_us);
+        int offset = 0;
+        for (int _i = 0; _i < BATCH_N; _i++) {
+            sample_t _s;
+            if (xQueueReceive(sample_q, &_s, portMAX_DELAY) != pdTRUE) break;
+
+            int left = (int)sizeof(payload) - offset;
+            if (left <= 1) break;
+
+            int n = snprintf(payload + offset, left,
+                            "%" PRIu32 ",%" PRIi64 "\n", _s.seq, _s.ts_us);
+
+            if (n < 0) break;
+            if (n >= left) {
+                offset = (int)sizeof(payload) - 1;
+                payload[offset] = '\0';
+                break;
+            }
+
+            offset += n;
+        }
 #endif
 
-            int msg_id = esp_mqtt_client_publish(g_mqtt_client, topic, payload, n, 0, 0); //TODO: publish 3 pactets each time and add a random delay(30ms~ 33.3ms)
-            if (msg_id < 0) {
-                g_pub_fail++;
-            } else {
-                g_pub_ok++;
-            }
+        if (offset > 0) {
+            int msg_id = esp_mqtt_client_publish(g_mqtt_client, topic, payload, offset, 0, 0);
+            if (msg_id < 0) g_pub_fail++;
+            else g_pub_ok++;
         }
     }
 }

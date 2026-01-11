@@ -31,12 +31,9 @@
 
 #define SAMPLE_PERIOD_MS     10
 #define SAMPLE_Q_LEN         256
-#define SAMPLE_PERIOD_MS     10
-#define SAMPLE_PERIOD_TICKS  pdMS_TO_TICKS(SAMPLE_PERIOD_MS)
-
+#define SAMPLE_PERIOD_TICKS  pdMS_TO_TICKS(SAMPLE_PERIOD_MS) // freertos tick 100hz
 
 extern const char *TAG;
-
 
 extern char g_dev_id[16];
 extern char g_topic_data[64];
@@ -55,8 +52,19 @@ extern uint32_t g_q_highwater;
 
 // --- sample & queue ---
 typedef struct {
+    int16_t acc[3];
+    int16_t lin_acc[3];
+    int16_t gyro[3];
+    int16_t quat[4];
+    uint8_t status[7];
+    uint32_t tag;
+    uint16_t batt_mV;
+} imu_raw_t;
+
+typedef struct {
     uint32_t seq;
     int64_t  ts_us;
+    imu_raw_t imu;
 } sample_t;
 
 extern QueueHandle_t sample_q;
