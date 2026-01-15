@@ -1,5 +1,6 @@
 # set(APP_ENTRY "app_main.c")
-set(APP_ENTRY "test_app/test_wifi.c")
+#set(APP_ENTRY "test_app/test_wifi.c")
+set(APP_ENTRY "test_app/test_mqtt.c")
 
 idf_component_register(
     SRCS

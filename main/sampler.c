@@ -8,7 +8,7 @@
 #include "app_ctx.h"
 #include "sampler.h"
 
-#define BATCH_N  5
+#define BATCH_N  3
 
 QueueHandle_t sample_q = NULL;
 

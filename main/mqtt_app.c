@@ -86,7 +86,7 @@ void mqtt_app_start(void)
             .topic = g_topic_status,
             .msg = "offline",
             .msg_len = 0, 
-            .qos = 0,
+            .qos = 1,
             .retain = 1,
         },
     };
